@@ -145,26 +145,24 @@ class _InvoiceListState extends State<InvoiceList> {
     _fetchDocuments();
   }
 
-  Future<void> _onInvoiceDetails(InvoiceListModel cst) async {
-    Customer mn;
+  Future<void> _onInvoiceDetails(InvoiceListModel cst)  async {
+    String invoiceid = cst.invoiceID;
+    InvoiceListModel? invs;
+    String invnum = '';
+    double save = 0;
+    Customer mn = Customer(
+        name: "Walking Customer",
+        address: "",
+        email: "",
+        phone1: "",
+        phone2: "",
+        user: '',
+        city: "",
+        balance: 0,
+        id: "",
+        zip: "",
+        sl: 0);
     if (cst.customerID == "0000") {
-      mn = Customer(
-          name: "Walking Customer",
-          address: "",
-          email: "",
-          phone1: "",
-          phone2: "",
-          user: '',
-          city: "",
-          balance: 0,
-          id: "",
-          zip: "",
-          sl: 0);
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => InvoiceDetails(cst, _refreshdata, mn),
-        ),
-      );
     } else {
       await FirebaseFirestore.instance
           .collection('Customer')
@@ -183,13 +181,57 @@ class _InvoiceListState extends State<InvoiceList> {
             user: element["User"],
             zip: element["Zip Code"],
             sl: 0);
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => InvoiceDetails(cst, _refreshdata, mn),
-          ),
-        );
       });
     }
+    await FirebaseFirestore.instance
+        .collection('Invoice')
+        .doc(invoiceid)
+        .get()
+        .then((element) {
+      invnum = element["Invoice No"];
+      invs = InvoiceListModel(
+        discount: element["Discount"],
+        total: element["Grand Total"],
+        due: element["Due"],
+        paid: element["Paid"],
+        retn: element["Return"],
+        profit: 0,
+        accountID: element["Account ID"],
+        invoiceNo: element["Invoice No"],
+        user: element['User'],
+        customerID: element["Customer ID"],
+        customerName: element["Customer"],
+        invoiceDate: element["Invoice Date"].toDate(),
+        invoiceID: element.id,
+        sl: 0,
+      );
+    });
+
+    List<Stock> InvoiceList = [];
+
+    await FirebaseFirestore.instance
+        .collection('InvoiceItem')
+        .orderBy("Serial", descending: false)
+        .get()
+        .then((querySnapshot) {
+      querySnapshot.docs.forEach((element) {
+        if (element["Invoice No"] == invnum) {
+          save = save + (element["Body Rate"] * element["Quantity"]);
+          InvoiceList.add(Stock.forInvoice(
+            productId: element["Product ID"],
+            productName: element["Product Name"],
+            //       expireDate: element["Expire Date"].toDate(),
+            price: element["Price"],
+            productqty: element["Quantity"],
+            serial: element["Serial"],
+            total: element["Total"],
+            discount: element["Discount"],
+          ));
+        }
+      });
+    }).catchError((error) => print("Failed to add user: $error"));
+
+    await PdfInvoiceA4PDF.generate(invs!, InvoiceList, mn, save, true);
   }
 
   Future<void> _onInvoiceDetailsPOS(InvoiceListModel cst) async {
@@ -278,7 +320,7 @@ class _InvoiceListState extends State<InvoiceList> {
       });
     }).catchError((error) => print("Failed to add user: $error"));
 
-    await PdfInvoiceA4PDF.generate(invs!, InvoiceList, mn, save);
+    await PdfInvoiceA4PDF.generate(invs!, InvoiceList, mn, save, false);
   }
 
   void _onEditInvoice(InvoiceListModel cst) {

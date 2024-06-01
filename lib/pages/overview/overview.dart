@@ -83,336 +83,336 @@ class _OverviewPageState extends State<OverviewPage> {
   @override
   void initState() {
     super.initState();
-   // showdil();
+    showdil();
   }
 
-  // void showdil() {
-  //   getData();
-  // }
+  void showdil() {
+    getData();
+  }
 
-  // getData() async {
-  //   var results = await Future.wait([
-  //     FirebaseFirestore.instance.collection('Customer').get(),
-  //     FirebaseFirestore.instance.collection('Supplier').get(),
-  //     FirebaseFirestore.instance.collection('Products').get(),
-  //     FirebaseFirestore.instance.collection('Lending').get(),
-  //     FirebaseFirestore.instance.collection('Stock').get(),
-  //     FirebaseFirestore.instance.collection('Transaction').get(),
-  //     FirebaseFirestore.instance.collection('Salary').get(),
-  //     FirebaseFirestore.instance.collection('ExpenseItem').get(),
-  //     FirebaseFirestore.instance.collection('Purchase').get(),
-  //     FirebaseFirestore.instance.collection('Invoice').get(),
-  //     FirebaseFirestore.instance.collection('InvoiceItem').get(),
-  //     FirebaseFirestore.instance.collection('Expense').get(),
-  //     FirebaseFirestore.instance.collection('Account').get(),
-  //   ]);
-  //
-  //   var customerQuery = results[0];
-  //   var supplierQuery = results[1];
-  //   var productsQuery = results[2];
-  //   var lendingQuery = results[3];
-  //   var expireStockQuery = results[4];
-  //   var transactionQuery = results[5];
-  //   var salaryQuery = results[6];
-  //   var expenseItemQuery = results[7];
-  //   var purchaseQuery = results[8];
-  //   var invoiceQuery = results[9];
-  //   var invoiceItemQuery = results[10];
-  //   var expenseQuery = results[11];
-  //   var accountQuery = results[12];
-  //
-  //   customer = double.parse(customerQuery.docs.length.toString());
-  //   manufactur = double.parse(supplierQuery.docs.length.toString());
-  //
-  //   for (var medi in productsQuery.docs) {
-  //     product++;
-  //     double totalmediqty = 0;
-  //     for (var element in expireStockQuery.docs) {
-  //       if (element["Product ID"] == medi.id) {
-  //         totalmediqty = totalmediqty + element["Quantity"];
-  //       }
-  //     }
-  //     if (!(totalmediqty > 0)) {
-  //       allStockout.add(ProductStock(
-  //           product: Product(
-  //             name: medi["Product Name"],
-  //             category: medi["Category Name"],
-  //             brand: medi["Brand Name"],
-  //             user: medi['User'],
-  //             id: medi.id,
-  //             code: medi['Code'],
-  //             bodyrate: medi["Body Rate"],
-  //             sl: 0,
-  //             details: medi["Product Details"],
-  //             menuperprice: medi['Purchase Price'],
-  //             perprice: medi["Product Price"],
-  //             strength: medi["Strength"],
-  //             unit: medi["Unit Name"],
-  //             img: medi["Image"],
-  //             imgurl: medi["ImageURL"],
-  //           ),
-  //           stocks: [],
-  //           inqty: 0,
-  //           outqty: 0,
-  //           sl: 0,
-  //           stockpurprice: 0,
-  //           stocksaleprice: 0,
-  //           stock: totalmediqty,
-  //           purcahseprice: 0,
-  //           saleprice: 0));
-  //     }
-  //
-  //     for (var element in invoiceItemQuery.docs) {
-  //       if (element["Product ID"] == medi.id) {
-  //         DateTime ss = element["Invoice Date"].toDate();
-  //         if ((DateTime.now().month == ss.month) &&
-  //             (DateTime.now().year == ss.year)) {
-  //           allsoldproduct.add(Stock.forInvoice(
-  //               productId: element["Product ID"],
-  //               productName: element["Product Name"],
-  //               //        expireDate: element["Expire Date"].toDate(),
-  //               price: element["Price"],
-  //               productqty: element["Quantity"],
-  //               serial: element["Serial"],
-  //               total: element["Total"],
-  //               discount: element["Discount"]));
-  //           if ((DateTime.now().day == ss.day)) {
-  //             for (var elem in expireStockQuery.docs) {
-  //               if (elem["Product ID"] == medi.id) {
-  //                 dailyprofit = dailyprofit +
-  //                     ((element["Price"] - elem["Supplier Price"]) *
-  //                         element["Quantity"]);
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  //
-  //   for (var element in lendingQuery.docs) {
-  //     if (element["Status"] == "Current") {
-  //       lending = lending + element["Amount"];
-  //       DateTime ss = element["Return Date"].toDate();
-  //       if (DateTime.now().isAfter(ss)) {
-  //         allLendings.add(Lending(
-  //             name: element["Lending Person Name"],
-  //             phone: element["Lending Person Phone"],
-  //             lendingpersonid: element["Lending Person ID"],
-  //             status: element["Status"],
-  //             uid: element["UID"],
-  //             user: element['User'],
-  //             remarks: element["Remarks"],
-  //             sl: 0,
-  //             amount: element["Amount"],
-  //             returnedamount: element["Returned Amount"],
-  //             date: element["Date"],
-  //             returndate: element["Return Date"],
-  //             lendingperson: element["Lending Person"],
-  //             from: element["From"]));
-  //       }
-  //     }
-  //   }
-  //
-  //   // for (var element in expireStockQuery.docs) {
-  //   //   DateTime ss = element["Expire Date"].toDate();
-  //   //   if (DateTime.now().isAfter(ss)) {
-  //   //     allExpire.add(Stock(
-  //   //         productId: element["Product ID"],
-  //   //         productName: element["Product Name"],
-  //   //         expireDate: element["Expire Date"].toDate(),
-  //   //         price: element["Price"],
-  //   //         manuPrice: element["Supplier Price"],
-  //   //         productqty: element["Quantity"],
-  //   //         serial: 0,
-  //   //         total: 0));
-  //   //   }
-  //   // }
-  //
-  //   for (var element in transactionQuery.docs) {
-  //     DateTime ss = element["Submit Date"].toDate();
-  //     if ((DateTime.now().month == ss.month) &&
-  //         (DateTime.now().day == ss.day) &&
-  //         (DateTime.now().year == ss.year)) {
-  //       if (element["Type"] == "Credit") {
-  //         if (element["Account Details"]["Bank"]) {
-  //           dailybank = dailybank + element["Amount"];
-  //         } else {
-  //           dailycash = dailycash + element["Amount"];
-  //         }
-  //       }
-  //     }
-  //   }
-  //
-  //   for (var element in salaryQuery.docs) {
-  //     DateTime ss = element["Date"].toDate();
-  //     if ((DateTime.now().month == ss.month) &&
-  //         (DateTime.now().year == ss.year)) {
-  //       expsal = expsal + element["Gross Salary"];
-  //       expense = expense + element["Gross Salary"];
-  //     }
-  //   }
-  //
-  //   for (var element in expenseQuery.docs) {
-  //     DateTime ss = element["Date"].toDate();
-  //     if ((DateTime.now().month == ss.month) &&
-  //         (DateTime.now().year == ss.year)) {
-  //       allExpenses.add(Expense(
-  //           sl: 0,
-  //           uid: element["UID"],
-  //           amount: element["Amount"],
-  //           date: element["Date"],
-  //           user: element['User'],
-  //           expenseid: element["Expense ID"],
-  //           expensename: element["Expense Name"],
-  //           from: element["From"],
-  //           others: element["Others"]));
-  //       expense = expense + element["Amount"];
-  //     }
-  //
-  //     if ((DateTime.now().month == ss.month) &&
-  //         (DateTime.now().day == ss.day) &&
-  //         (DateTime.now().year == ss.year)) {
-  //       dailyexpense = dailyexpense + element["Amount"];
-  //     }
-  //   }
-  //
-  //   for (var element in purchaseQuery.docs) {
-  //     DateTime ss = element["Invoice Date"].toDate();
-  //     int year = DateTime.now().year;
-  //
-  //     for (int i = 1; i <= 12; i++) {
-  //       if (ss.month == i && ss.year == year) {
-  //         switch (i) {
-  //           case 1:
-  //             ejan += element["Grand Total"];
-  //             break;
-  //           case 2:
-  //             efeb += element["Grand Total"];
-  //             break;
-  //           case 3:
-  //             emar += element["Grand Total"];
-  //             break;
-  //           case 4:
-  //             eapr += element["Grand Total"];
-  //             break;
-  //           case 5:
-  //             emay += element["Grand Total"];
-  //             break;
-  //           case 6:
-  //             ejun += element["Grand Total"];
-  //             break;
-  //           case 7:
-  //             ejul += element["Grand Total"];
-  //             break;
-  //           case 8:
-  //             eaug += element["Grand Total"];
-  //             break;
-  //           case 9:
-  //             esept += element["Grand Total"];
-  //             break;
-  //           case 10:
-  //             eoct += element["Grand Total"];
-  //             break;
-  //           case 11:
-  //             enov += element["Grand Total"];
-  //             break;
-  //           case 12:
-  //             edec += element["Grand Total"];
-  //             break;
-  //         }
-  //         pur += element["Grand Total"];
-  //         break;
-  //       }
-  //     }
-  //
-  //     if ((DateTime.now().month == ss.month) &&
-  //         (DateTime.now().day == ss.day) &&
-  //         (DateTime.now().year == ss.year)) {
-  //       dailypurchase = dailypurchase + element["Grand Total"];
-  //     }
-  //   }
-  //
-  //   for (var element in invoiceQuery.docs) {
-  //     DateTime ss = element["Invoice Date"].toDate();
-  //     int year = DateTime.now().year;
-  //
-  //     for (int i = 1; i <= 12; i++) {
-  //       if (ss.month == i && ss.year == year) {
-  //         switch (i) {
-  //           case 1:
-  //             cjan += element["Grand Total"];
-  //             break;
-  //           case 2:
-  //             cfeb += element["Grand Total"];
-  //             break;
-  //           case 3:
-  //             cmar += element["Grand Total"];
-  //             break;
-  //           case 4:
-  //             capr += element["Grand Total"];
-  //             break;
-  //           case 5:
-  //             cmay += element["Grand Total"];
-  //             break;
-  //           case 6:
-  //             cjun += element["Grand Total"];
-  //             break;
-  //           case 7:
-  //             cjul += element["Grand Total"];
-  //             break;
-  //           case 8:
-  //             caug += element["Grand Total"];
-  //             break;
-  //           case 9:
-  //             csept += element["Grand Total"];
-  //             break;
-  //           case 10:
-  //             coct += element["Grand Total"];
-  //             break;
-  //           case 11:
-  //             cnov += element["Grand Total"];
-  //             break;
-  //           case 12:
-  //             cdec += element["Grand Total"];
-  //             break;
-  //         }
-  //         sales += element["Grand Total"];
-  //         break;
-  //       }
-  //     }
-  //
-  //     if ((DateTime.now().month == ss.month) &&
-  //         (DateTime.now().day == ss.day) &&
-  //         (DateTime.now().year == ss.year)) {
-  //       dailysale = dailysale + element["Grand Total"];
-  //     }
-  //   }
-  //   for (var element in accountQuery.docs) {
-  //     accounts.add(Accounts(
-  //         uid: element["UID"],
-  //         accountname: element["Account Name"],
-  //         accountnum: element["Account Number"],
-  //         cashdetails: element["Cash Details"],
-  //         cashname: element["Cash Name"],
-  //         bal: element["Balance"],
-  //         user: element['User'],
-  //         sts: element["Status"],
-  //         bankname: element["Bank Name"],
-  //         bank: element["Bank"],
-  //         branch: element["Branch"],
-  //         sl: 0));
-  //   }
-  //
-  //   if (AuthService.to.isfirsttime.isTrue) {
-  //     AuthService.to.setisfirsttime();
-  //     showData();
-  //   } else {
-  //     setState(() {
-  //       loading = false;
-  //     });
-  //   }
-  // }
+  getData() async {
+    var results = await Future.wait([
+      FirebaseFirestore.instance.collection('Customer').get(),
+      FirebaseFirestore.instance.collection('Supplier').get(),
+      FirebaseFirestore.instance.collection('Products').get(),
+      FirebaseFirestore.instance.collection('Lending').get(),
+      FirebaseFirestore.instance.collection('Stock').get(),
+      FirebaseFirestore.instance.collection('Transaction').get(),
+      FirebaseFirestore.instance.collection('Salary').get(),
+      FirebaseFirestore.instance.collection('ExpenseItem').get(),
+      FirebaseFirestore.instance.collection('Purchase').get(),
+      FirebaseFirestore.instance.collection('Invoice').get(),
+      FirebaseFirestore.instance.collection('InvoiceItem').get(),
+      FirebaseFirestore.instance.collection('Expense').get(),
+      FirebaseFirestore.instance.collection('Account').get(),
+    ]);
+
+    var customerQuery = results[0];
+    var supplierQuery = results[1];
+    var productsQuery = results[2];
+    var lendingQuery = results[3];
+    var expireStockQuery = results[4];
+    var transactionQuery = results[5];
+    var salaryQuery = results[6];
+    var expenseItemQuery = results[7];
+    var purchaseQuery = results[8];
+    var invoiceQuery = results[9];
+    var invoiceItemQuery = results[10];
+    var expenseQuery = results[11];
+    var accountQuery = results[12];
+
+    customer = double.parse(customerQuery.docs.length.toString());
+    manufactur = double.parse(supplierQuery.docs.length.toString());
+
+    for (var medi in productsQuery.docs) {
+      product++;
+      double totalmediqty = 0;
+      for (var element in expireStockQuery.docs) {
+        if (element["Product ID"] == medi.id) {
+          totalmediqty = totalmediqty + element["Quantity"];
+        }
+      }
+      if (!(totalmediqty > 0)) {
+        allStockout.add(ProductStock(
+            product: Product(
+              name: medi["Product Name"],
+              category: medi["Category Name"],
+              brand: medi["Brand Name"],
+              user: medi['User'],
+              id: medi.id,
+              code: medi['Code'],
+              bodyrate: medi["Body Rate"],
+              sl: 0,
+              details: medi["Product Details"],
+              menuperprice: medi['Purchase Price'],
+              perprice: medi["Product Price"],
+              strength: medi["Strength"],
+              unit: medi["Unit Name"],
+              img: medi["Image"],
+              imgurl: medi["ImageURL"],
+            ),
+            stocks: [],
+            inqty: 0,
+            outqty: 0,
+            sl: 0,
+            stockpurprice: 0,
+            stocksaleprice: 0,
+            stock: totalmediqty,
+            purcahseprice: 0,
+            saleprice: 0));
+      }
+
+      for (var element in invoiceItemQuery.docs) {
+        if (element["Product ID"] == medi.id) {
+          DateTime ss = element["Invoice Date"].toDate();
+          if ((DateTime.now().month == ss.month) &&
+              (DateTime.now().year == ss.year)) {
+            allsoldproduct.add(Stock.forInvoice(
+                productId: element["Product ID"],
+                productName: element["Product Name"],
+                //        expireDate: element["Expire Date"].toDate(),
+                price: element["Price"],
+                productqty: element["Quantity"],
+                serial: element["Serial"],
+                total: element["Total"],
+                discount: element["Discount"]));
+            if ((DateTime.now().day == ss.day)) {
+              for (var elem in expireStockQuery.docs) {
+                if (elem["Product ID"] == medi.id) {
+                  dailyprofit = dailyprofit +
+                      ((element["Price"] - elem["Supplier Price"]) *
+                          element["Quantity"]);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    for (var element in lendingQuery.docs) {
+      if (element["Status"] == "Current") {
+        lending = lending + element["Amount"];
+        DateTime ss = element["Return Date"].toDate();
+        if (DateTime.now().isAfter(ss)) {
+          allLendings.add(Lending(
+              name: element["Lending Person Name"],
+              phone: element["Lending Person Phone"],
+              lendingpersonid: element["Lending Person ID"],
+              status: element["Status"],
+              uid: element["UID"],
+              user: element['User'],
+              remarks: element["Remarks"],
+              sl: 0,
+              amount: element["Amount"],
+              returnedamount: element["Returned Amount"],
+              date: element["Date"],
+              returndate: element["Return Date"],
+              lendingperson: element["Lending Person"],
+              from: element["From"]));
+        }
+      }
+    }
+
+    // for (var element in expireStockQuery.docs) {
+    //   DateTime ss = element["Expire Date"].toDate();
+    //   if (DateTime.now().isAfter(ss)) {
+    //     allExpire.add(Stock(
+    //         productId: element["Product ID"],
+    //         productName: element["Product Name"],
+    //         expireDate: element["Expire Date"].toDate(),
+    //         price: element["Price"],
+    //         manuPrice: element["Supplier Price"],
+    //         productqty: element["Quantity"],
+    //         serial: 0,
+    //         total: 0));
+    //   }
+    // }
+
+    for (var element in transactionQuery.docs) {
+      DateTime ss = element["Submit Date"].toDate();
+      if ((DateTime.now().month == ss.month) &&
+          (DateTime.now().day == ss.day) &&
+          (DateTime.now().year == ss.year)) {
+        if (element["Type"] == "Credit") {
+          if (element["Account Details"]["Bank"]) {
+            dailybank = dailybank + element["Amount"];
+          } else {
+            dailycash = dailycash + element["Amount"];
+          }
+        }
+      }
+    }
+
+    for (var element in salaryQuery.docs) {
+      DateTime ss = element["Date"].toDate();
+      if ((DateTime.now().month == ss.month) &&
+          (DateTime.now().year == ss.year)) {
+        expsal = expsal + element["Gross Salary"];
+        expense = expense + element["Gross Salary"];
+      }
+    }
+
+    for (var element in expenseQuery.docs) {
+      DateTime ss = element["Date"].toDate();
+      if ((DateTime.now().month == ss.month) &&
+          (DateTime.now().year == ss.year)) {
+        allExpenses.add(Expense(
+            sl: 0,
+            uid: element["UID"],
+            amount: element["Amount"],
+            date: element["Date"],
+            user: element['User'],
+            expenseid: element["Expense ID"],
+            expensename: element["Expense Name"],
+            from: element["From"],
+            others: element["Others"]));
+        expense = expense + element["Amount"];
+      }
+
+      if ((DateTime.now().month == ss.month) &&
+          (DateTime.now().day == ss.day) &&
+          (DateTime.now().year == ss.year)) {
+        dailyexpense = dailyexpense + element["Amount"];
+      }
+    }
+
+    for (var element in purchaseQuery.docs) {
+      DateTime ss = element["Invoice Date"].toDate();
+      int year = DateTime.now().year;
+
+      for (int i = 1; i <= 12; i++) {
+        if (ss.month == i && ss.year == year) {
+          switch (i) {
+            case 1:
+              ejan += element["Grand Total"];
+              break;
+            case 2:
+              efeb += element["Grand Total"];
+              break;
+            case 3:
+              emar += element["Grand Total"];
+              break;
+            case 4:
+              eapr += element["Grand Total"];
+              break;
+            case 5:
+              emay += element["Grand Total"];
+              break;
+            case 6:
+              ejun += element["Grand Total"];
+              break;
+            case 7:
+              ejul += element["Grand Total"];
+              break;
+            case 8:
+              eaug += element["Grand Total"];
+              break;
+            case 9:
+              esept += element["Grand Total"];
+              break;
+            case 10:
+              eoct += element["Grand Total"];
+              break;
+            case 11:
+              enov += element["Grand Total"];
+              break;
+            case 12:
+              edec += element["Grand Total"];
+              break;
+          }
+          pur += element["Grand Total"];
+          break;
+        }
+      }
+
+      if ((DateTime.now().month == ss.month) &&
+          (DateTime.now().day == ss.day) &&
+          (DateTime.now().year == ss.year)) {
+        dailypurchase = dailypurchase + element["Grand Total"];
+      }
+    }
+
+    for (var element in invoiceQuery.docs) {
+      DateTime ss = element["Invoice Date"].toDate();
+      int year = DateTime.now().year;
+
+      for (int i = 1; i <= 12; i++) {
+        if (ss.month == i && ss.year == year) {
+          switch (i) {
+            case 1:
+              cjan += element["Grand Total"];
+              break;
+            case 2:
+              cfeb += element["Grand Total"];
+              break;
+            case 3:
+              cmar += element["Grand Total"];
+              break;
+            case 4:
+              capr += element["Grand Total"];
+              break;
+            case 5:
+              cmay += element["Grand Total"];
+              break;
+            case 6:
+              cjun += element["Grand Total"];
+              break;
+            case 7:
+              cjul += element["Grand Total"];
+              break;
+            case 8:
+              caug += element["Grand Total"];
+              break;
+            case 9:
+              csept += element["Grand Total"];
+              break;
+            case 10:
+              coct += element["Grand Total"];
+              break;
+            case 11:
+              cnov += element["Grand Total"];
+              break;
+            case 12:
+              cdec += element["Grand Total"];
+              break;
+          }
+          sales += element["Grand Total"];
+          break;
+        }
+      }
+
+      if ((DateTime.now().month == ss.month) &&
+          (DateTime.now().day == ss.day) &&
+          (DateTime.now().year == ss.year)) {
+        dailysale = dailysale + element["Grand Total"];
+      }
+    }
+    for (var element in accountQuery.docs) {
+      accounts.add(Accounts(
+          uid: element["UID"],
+          accountname: element["Account Name"],
+          accountnum: element["Account Number"],
+          cashdetails: element["Cash Details"],
+          cashname: element["Cash Name"],
+          bal: element["Balance"],
+          user: element['User'],
+          sts: element["Status"],
+          bankname: element["Bank Name"],
+          bank: element["Bank"],
+          branch: element["Branch"],
+          sl: 0));
+    }
+
+    if (AuthService.to.isfirsttime.isTrue) {
+      AuthService.to.setisfirsttime();
+      showData();
+    } else {
+      setState(() {
+        loading = false;
+      });
+    }
+  }
 
   List<Map<String, dynamic>> getTop10Products() {
     final Map<String, double> productQuantityMap = {};
@@ -1251,7 +1251,7 @@ class _OverviewPageState extends State<OverviewPage> {
                                                 ],
                                               ),
                                               alignment: Alignment.center,
-                                              padding: const EdgeInsets.all(20),
+                                              padding: const EdgeInsets.all(10),
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.end,

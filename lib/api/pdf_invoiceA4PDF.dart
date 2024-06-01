@@ -17,6 +17,7 @@ class PdfInvoiceA4PDF {
     List<Stock> stock,
     Customer mn,
     double save,
+      bool show
   ) async {
     final pdf = Document();
 
@@ -33,7 +34,7 @@ class PdfInvoiceA4PDF {
       pageFormat: PdfPageFormat.a4,
       margin: EdgeInsets.zero,
       header: (context) => buildHeader(ttf, data, ttfbold),
-      footer: (context) => buildFooter(ttf, ttfbold),
+      footer: (context) => buildFooter(ttf, ttfbold, show),
       build: (context) => [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -97,7 +98,7 @@ class PdfInvoiceA4PDF {
                 child: Container(
                   margin: EdgeInsets.only(left: 20),
                   alignment: Alignment.centerLeft,
-                  child: Text("Bill From",
+                  child: Text(!show ?"":"Bill From",
                       style: TextStyle(
                         font: ttfbold,
                         fontSize: 12,
@@ -133,31 +134,31 @@ class PdfInvoiceA4PDF {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(pharmacyName,
+                      Text(!show ?"":pharmacyName,
                           style: TextStyle(
                             font: ttf,
                             fontSize: 8,
                             color: PdfColors.black,
                           )),
-                      Text(pharmacyAddress,
+                      Text(!show ?"":pharmacyAddress,
                           style: TextStyle(
                             font: ttf,
                             fontSize: 8,
                             color: PdfColors.black,
                           )),
-                      Text(pharmacyCity,
+                      Text(!show ?"":pharmacyCity,
                           style: TextStyle(
                             font: ttf,
                             fontSize: 8,
                             color: PdfColors.black,
                           )),
-                      Text(pharmacyNumber,
+                      Text(!show ?"":pharmacyNumber,
                           style: TextStyle(
                             font: ttf,
                             fontSize: 8,
                             color: PdfColors.black,
                           )),
-                      Text(pharmacyEmail,
+                      Text(!show ?"":pharmacyEmail,
                           style: TextStyle(
                             font: ttf,
                             fontSize: 8,
@@ -822,18 +823,18 @@ class PdfInvoiceA4PDF {
     );
   }
 
-  static Widget buildFooter(final ttf, final ttfbold) => Container(
+  static Widget buildFooter(final ttf, final ttfbold,bool show) => Container(
       margin: EdgeInsets.only(bottom: PdfPageFormat.a4.marginBottom - 40),
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
         SizedBox(height: 20),
         Divider(color: PdfColor.fromHex("#808080")),
-        Text(pharmacyName,
+        Text(!show ?"":pharmacyName,
             style: TextStyle(
                 font: ttfbold,
                 fontSize: 16,
                 color: PdfColor.fromHex("#1E2772"))),
         Text(
-            '$pharmacyAddress, $pharmacyCity | $pharmacyNumber | $pharmacyEmail',
+            !show ?"": '$pharmacyAddress, $pharmacyCity | $pharmacyNumber | $pharmacyEmail',
             style: TextStyle(
                 font: ttf, fontSize: 8, color: PdfColor.fromHex("#808080"))),
       ]));
