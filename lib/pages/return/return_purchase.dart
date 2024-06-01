@@ -73,7 +73,7 @@ class _ReturnPurchaseState extends State<ReturnPurchase> {
               id: element.id,
               discount: qty,
               check: false,
-              expireDate: element["Expire Date"].toDate(),
+    //          expireDate: element["Expire Date"].toDate(),
               productId: element["Product ID"],
               deductionval: 0,
               productName: element["Product Name"],

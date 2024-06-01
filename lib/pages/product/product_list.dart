@@ -21,14 +21,11 @@ import '../../widgets/topnavigaton.dart';
 import 'edit_Product.dart';
 
 class ProductList extends StatefulWidget {
-  
-  
   Navbools nn;
-  ProductList(
-      {super.key,
-        
-        required this.nn,
-        });
+  ProductList({
+    super.key,
+    required this.nn,
+  });
 
   @override
   State<ProductList> createState() => _ProductListState();
@@ -64,8 +61,6 @@ class _ProductListState extends State<ProductList> {
     }
   }
 
-
-
   void _fetchDocuments() async {
     int s = 0;
     _click = [];
@@ -79,9 +74,13 @@ class _ProductListState extends State<ProductList> {
         allProducts.add(Product(
           name: element["Product Name"],
           category: element["Category Name"],
-          brand: element["Brand Name"],user: element['User'],
-          id: element.id,code: element['Code'],
-          sl: s,details:element["Product Details"],bodyrate: element["Body Rate"],
+          brand: element["Brand Name"],
+          user: element['User'],
+          id: element.id,
+          code: element['Code'],
+          sl: s,
+          details: element["Product Details"],
+          bodyrate: element["Body Rate"],
           menuperprice: element['Purchase Price'],
           perprice: element["Product Price"],
           strength: element["Strength"],
@@ -97,15 +96,17 @@ class _ProductListState extends State<ProductList> {
     makechunks();
   }
 
-  void _onEditProduct(Product cst)
-    async  {
-      var result = await Get.toNamed(editproductPageRoute,arguments: {
+  void _onEditProduct(Product cst) async {
+    var result = await Get.toNamed(
+      editproductPageRoute,
+      arguments: {
         'Product': jsonEncode(cst),
-      },);
-      if (result == 'update') {
-        _fetchDocuments();
-      }
+      },
+    );
+    if (result == 'update') {
+      _fetchDocuments();
     }
+  }
 
   void makechunks() {
     chunks = [];
@@ -136,7 +137,7 @@ class _ProductListState extends State<ProductList> {
     } else {
       results = allProducts
           .where((user) =>
-          user.name.toLowerCase().contains(enteredKeyword.toLowerCase()))
+              user.name.toLowerCase().contains(enteredKeyword.toLowerCase()))
           .toList();
     }
     setState(() {
@@ -164,33 +165,38 @@ class _ProductListState extends State<ProductList> {
 
     Future<List<Product>> getCust() async {
       List<Product> Products = [];
-      if(chunks.isNotEmpty){
-      for (int ss = 0; ss < chunks[_currentpagenum - 1].length; ss++) {
-        Products.add(chunks[_currentpagenum - 1][ss]);
-      }}
+      if (chunks.isNotEmpty) {
+        for (int ss = 0; ss < chunks[_currentpagenum - 1].length; ss++) {
+          Products.add(chunks[_currentpagenum - 1][ss]);
+        }
+      }
       return Products;
     }
 
-    List<Product> getlist()  {
+    List<Product> getlist() {
       List<Product> Products = [];
       for (int ss = 0; ss < chunks[_currentpagenum - 1].length; ss++) {
         Products.add(chunks[_currentpagenum - 1][ss]);
       }
       return Products;
     }
- 
 
     return Scaffold(
         extendBodyBehindAppBar: true,
-        appBar:MyAppBar(height: _height,width:  _width,),
+        appBar: MyAppBar(
+          height: _height,
+          width: _width,
+        ),
         body: Obx(() => Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            controller.screenSize.value
-                ? SideMenuBig(widget.nn)
-                : SideMenuSmall(widget.nn,),
-            Expanded(
-                child: Container(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                controller.screenSize.value
+                    ? SideMenuBig(widget.nn)
+                    : SideMenuSmall(
+                        widget.nn,
+                      ),
+                Expanded(
+                    child: Container(
                   margin: EdgeInsets.only(top: _height / 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -210,13 +216,14 @@ class _ProductListState extends State<ProductList> {
                                   size: 22,
                                   weight: FontWeight.bold,
                                 ),
-
-                                SizedBox(width: 10,),
+                                SizedBox(
+                                  width: 10,
+                                ),
                                 InkWell(
-                                  onTap: (){
-                                    CsvProduct.generateAndDownloadCsv(getlist(), 'Product_List.csv');
+                                  onTap: () {
+                                    CsvProduct.generateAndDownloadCsv(
+                                        getlist(), 'Product_List.csv');
                                   },
-
                                   child: Container(
                                     margin: EdgeInsets.only(left: 10, top: 5),
                                     child: InkWell(
@@ -229,7 +236,7 @@ class _ProductListState extends State<ProductList> {
                                   ),
                                 ),
                                 InkWell(
-                                  onTap: (){
+                                  onTap: () {
                                     PdfProduct.generate(getlist());
                                   },
                                   child: Container(
@@ -247,22 +254,25 @@ class _ProductListState extends State<ProductList> {
                             ),
                             Container(
                               width: _width / 5,
-                              margin:
-                              EdgeInsets.only(top: 10, bottom: 10, right: _width / 25),
+                              margin: EdgeInsets.only(
+                                  top: 10, bottom: 10, right: _width / 25),
                               decoration: BoxDecoration(
                                   border: Border.all(
                                     color: Colors.white,
                                   ),
-                                  borderRadius: BorderRadius.all(Radius.circular(10))),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
                               child: TextField(
                                 controller: search_Product,
                                 decoration: InputDecoration(
                                   enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
                                     borderSide: BorderSide(color: Colors.grey),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
                                     borderSide: BorderSide(color: Colors.grey),
                                   ),
                                   prefixIcon: Icon(Icons.search),
@@ -294,8 +304,8 @@ class _ProductListState extends State<ProductList> {
                                             setState(() {
                                               _nametop = false;
                                               _namebot = false;
-                                              allProducts
-                                                  .sort((a, b) => a.sl.compareTo(b.sl));
+                                              allProducts.sort((a, b) =>
+                                                  a.sl.compareTo(b.sl));
                                               makechunks();
                                             });
                                           },
@@ -314,7 +324,8 @@ class _ProductListState extends State<ProductList> {
                                     Text("|"),
                                     Expanded(
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Flexible(
                                             child: Container(
@@ -341,14 +352,14 @@ class _ProductListState extends State<ProductList> {
                                                 if (!_nametop) {
                                                   _nametop = true;
                                                   _namebot = false;
-                                                  allProducts.sort(
-                                                          (a, b) => a.name.compareTo(b.name));
+                                                  allProducts.sort((a, b) =>
+                                                      a.name.compareTo(b.name));
                                                   makechunks();
                                                 } else {
                                                   _nametop = false;
                                                   _namebot = true;
-                                                  allProducts.sort(
-                                                          (b, a) => a.name.compareTo(b.name));
+                                                  allProducts.sort((b, a) =>
+                                                      a.name.compareTo(b.name));
                                                   makechunks();
                                                 }
                                               });
@@ -362,8 +373,9 @@ class _ProductListState extends State<ProductList> {
                                                         ? Colors.black
                                                         : Colors.black45,
                                                   ),
-                                                  transform: Matrix4.translationValues(
-                                                      0.0, 8.0, 0.0),
+                                                  transform:
+                                                      Matrix4.translationValues(
+                                                          0.0, 8.0, 0.0),
                                                 ),
                                                 Container(
                                                   child: Icon(
@@ -372,8 +384,9 @@ class _ProductListState extends State<ProductList> {
                                                         ? Colors.black
                                                         : Colors.black45,
                                                   ),
-                                                  transform: Matrix4.translationValues(
-                                                      0.0, -8.0, 0.0),
+                                                  transform:
+                                                      Matrix4.translationValues(
+                                                          0.0, -8.0, 0.0),
                                                 ),
                                               ],
                                             ),
@@ -416,7 +429,8 @@ class _ProductListState extends State<ProductList> {
                                     Expanded(
                                       flex: 3,
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Flexible(
                                             child: Container(
@@ -434,11 +448,13 @@ class _ProductListState extends State<ProductList> {
                                           ),
                                         ],
                                       ),
-                                    ),Text("|"),
+                                    ),
+                                    Text("|"),
                                     Expanded(
                                       flex: 3,
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Flexible(
                                             child: Container(
@@ -461,7 +477,8 @@ class _ProductListState extends State<ProductList> {
                                     Expanded(
                                       flex: 4,
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Flexible(
                                             child: Container(
@@ -531,8 +548,9 @@ class _ProductListState extends State<ProductList> {
                               Container(
                                 height: _height / 1.60,
                                 child: FutureBuilder(
-                                  builder: (ctx,AsyncSnapshot snapshot) {
-                                    if (snapshot.connectionState == ConnectionState.done) {
+                                  builder: (ctx, AsyncSnapshot snapshot) {
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.done) {
                                       if (snapshot.hasError) {
                                         return const Center(
                                           child: Text(
@@ -569,77 +587,79 @@ class _ProductListState extends State<ProductList> {
                               ),
                               _width > 600
                                   ? Container(
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.only(left: 45),
                                       child: Row(
                                         children: [
-                                          CustomText(
-                                            text: "Show entries",
-                                            size: 12,
-                                            color: tabletitle,
+                                          Container(
+                                            margin: EdgeInsets.only(left: 45),
+                                            child: Row(
+                                              children: [
+                                                CustomText(
+                                                  text: "Show entries",
+                                                  size: 12,
+                                                  color: tabletitle,
+                                                ),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                  ),
+                                                  child: DropdownButton<int>(
+                                                    value: _items,
+                                                    icon: const Icon(Icons
+                                                        .keyboard_arrow_down),
+                                                    items:
+                                                        items.map((int items) {
+                                                      return DropdownMenuItem(
+                                                        value: items,
+                                                        child: CustomText(
+                                                          text:
+                                                              items.toString(),
+                                                          size: 12,
+                                                          color: tabletitle,
+                                                        ),
+                                                      );
+                                                    }).toList(),
+                                                    onChanged: (int? newValue) {
+                                                      setState(() {
+                                                        _items = newValue!;
+                                                        makechunks();
+                                                      });
+                                                    },
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                          SizedBox(
-                                            width: 10,
+                                          Expanded(
+                                            child: SizedBox(
+                                              height: 1,
+                                            ),
+                                            flex: 10,
                                           ),
                                           Container(
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                            ),
-                                            child: DropdownButton<int>(
-                                              value: _items,
-                                              icon: const Icon(
-                                                  Icons.keyboard_arrow_down),
-                                              items: items.map((int items) {
-                                                return DropdownMenuItem(
-                                                  value: items,
-                                                  child: CustomText(
-                                                    text: items.toString(),
-                                                    size: 12,
-                                                    color: tabletitle,
-                                                  ),
-                                                );
-                                              }).toList(),
-                                              onChanged: (int? newValue) {
+                                            width: _width / 3,
+                                            child: NumberPaginator(
+                                              controller: _controller,
+                                              numberPages: _totalpagenum,
+                                              onPageChange: (int index) {
                                                 setState(() {
-                                                  _items = newValue!;
-                                                  makechunks();
+                                                  _currentpagenum = index + 1;
+                                                  _click = [];
                                                 });
                                               },
                                             ),
                                           ),
+                                          Expanded(
+                                            child: SizedBox(
+                                              height: 1,
+                                            ),
+                                            flex: 15,
+                                          ),
                                         ],
                                       ),
-                                    ),
-                                    Expanded(
-                                      child: SizedBox(
-                                        height: 1,
-                                      ),
-                                      flex: 10,
-                                    ),
-                                    Container(
-                                      width: _width / 3,
-                                      child: NumberPaginator(
-                                        controller: _controller,
-                                        numberPages: _totalpagenum,
-                                        onPageChange: (int index) {
-                                          setState(() {
-                                            _currentpagenum = index + 1;
-                                            _click = [];
-                                          });
-                                        },
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: SizedBox(
-                                        height: 1,
-                                      ),
-                                      flex: 15,
-                                    ),
-                                  ],
-                                ),
-                              )
+                                    )
                                   : SizedBox(),
                             ],
                           ),
@@ -648,7 +668,7 @@ class _ProductListState extends State<ProductList> {
                     ],
                   ),
                 )),
-          ],
-        )));
+              ],
+            )));
   }
 }

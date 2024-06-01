@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 class Stock {
   late String productId, productName;
-  late DateTime expireDate;
+ // late DateTime expireDate;
   late double
       productqty,
       manuPrice,
@@ -15,7 +15,7 @@ class Stock {
 
   Stock.forInvoice({
     required this.discount,
-    required this.expireDate,
+  //  required this.expireDate,
     required this.productId,
     required this.productName,
     required this.price,
@@ -27,7 +27,7 @@ class Stock {
       {
       required this.productId,
       required this.productName,
-      required this.expireDate,
+   //   required this.expireDate,
       required this.price,
       required this.manuPrice,
       required this.productqty,
@@ -40,7 +40,7 @@ class Stock {
       required this.inqty,
       required this.productId,
       required this.productName,
-      required this.expireDate,
+   //   required this.expireDate,
       required this.price,
       required this.manuPrice,
       required this.productqty,

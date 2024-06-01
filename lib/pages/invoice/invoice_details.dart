@@ -60,7 +60,7 @@ class _InvoiceDetailsState extends State<InvoiceDetails> {
             InvoiceList.add(Stock.forInvoice(
               productId: element["Product ID"],
               productName: element["Product Name"],
-              expireDate: element["Expire Date"].toDate(),
+            //  expireDate: element["Expire Date"].toDate(),
               price: element["Price"],
               productqty: element["Quantity"],
               serial: element["Serial"],
@@ -103,7 +103,7 @@ class _InvoiceDetailsState extends State<InvoiceDetails> {
                     child: Container(
                       width: double.infinity,
                       height: double.infinity,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage("assets/images/invoice_bg.png"),
                           fit: BoxFit.fill,
@@ -157,7 +157,7 @@ class _InvoiceDetailsState extends State<InvoiceDetails> {
                                       children: [
                                         Container(
                                           width: width / 4.5,
-                                          padding: EdgeInsets.only(
+                                          padding: const EdgeInsets.only(
                                               left: 10,
                                               right: 3,
                                               bottom: 3,

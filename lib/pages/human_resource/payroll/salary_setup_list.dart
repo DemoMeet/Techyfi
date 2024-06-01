@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:mat_month_picker_dialog/mat_month_picker_dialog.dart';
 import 'package:number_paginator/number_paginator.dart';
 
 import '../../../constants/style.dart';
@@ -116,21 +115,21 @@ class _SalarySetupListState extends State<SalarySetupList> {
 
   _selectDate(BuildContext context) async {
 
-    showMonthPicker(
-      context: context,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2025),
-      initialDate: selectedDate,
-    ).then((DateTime? date) {
-      if (date != null) {
-        setState(() {
-          selectedDate = date;
-          _runDateFilter(selectedDate, true);
-        });
-      }else{
-        _runDateFilter(selectedDate, false);
-      }
-    });
+    // showMonthPicker(
+    //   context: context,
+    //   firstDate: DateTime(2000),
+    //   lastDate: DateTime(2025),
+    //   initialDate: selectedDate,
+    // ).then((DateTime? date) {
+    //   if (date != null) {
+    //     setState(() {
+    //       selectedDate = date;
+    //       _runDateFilter(selectedDate, true);
+    //     });
+    //   }else{
+    //     _runDateFilter(selectedDate, false);
+    //   }
+    // });
   }
   void _runFilter(String enteredKeyword) {
     List<Salary> results = [];

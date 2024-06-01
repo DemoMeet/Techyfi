@@ -41,7 +41,7 @@ class _InvoiceItemState extends State<InvoiceItem> {
         widget.listitem.stock  = Stock(
             productId: element["Product ID"],
             productName: element["Product Name"],
-            expireDate: element["Expire Date"].toDate(),
+     //       expireDate: element["Expire Date"].toDate(),
             price: element["Price"],
             manuPrice: element["Supplier Price"],
             productqty: element["Quantity"],
@@ -196,25 +196,25 @@ class _InvoiceItemState extends State<InvoiceItem> {
                       ),
                     ),
                   )),
-              Expanded(
-                flex: 5,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[400],
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  margin: EdgeInsets.only(left: 5, right: 5),
-                  alignment: Alignment.center,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-                    child: CustomText(
-                      text: outputFormat
-                              .format(widget.listitem.stock.expireDate),
-                      size: 12,
-                    ),
-                  ),
-                ),
-              ),
+          //     Expanded(
+          //       flex: 5,
+          //       child: Container(
+          //         decoration: BoxDecoration(
+          //           color: Colors.grey[400],
+          //           borderRadius: BorderRadius.circular(5),
+          //         ),
+          //         margin: EdgeInsets.only(left: 5, right: 5),
+          //         alignment: Alignment.center,
+          //         child: Container(
+          //           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+          //           child: CustomText(
+          //   //          text: outputFormat
+          // //                    .format(widget.listitem.stock.expireDate),
+          //             size: 12,
+          //           ),
+          //         ),
+          //       ),
+          //     ),
               
               Expanded(
                 flex: 4,

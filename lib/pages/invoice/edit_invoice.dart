@@ -283,7 +283,7 @@ class _EditInvoiceState extends State<EditInvoice> {
         ),
         boxmrpcontrollers:  TextEditingController(text: "0"),
         boxqtycontrollers:  TextEditingController(text: "0"),
-        expiredate: DateTime.now(),
+      //  expiredate: DateTime.now(),
         supplierpricecontrollers:  TextEditingController(text: "0"),
         selectedproduct: ""));
     setState(() {});
@@ -644,22 +644,22 @@ class _EditInvoiceState extends State<EditInvoice> {
                         ),
                       ),
                       flex: 7,
-                    ),
-                    Text("|"),
-                    Expanded(
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "Expire Date",
-                          style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: tabletitle,
-                              fontFamily: 'inter'),
-                        ),
-                      ),
-                      flex: 8,
-                    ),
+                     ),
+                    // Text("|"),
+                    // Expanded(
+                    //   child: Container(
+                    //     alignment: Alignment.center,
+                    //     child: Text(
+                    //       "Expire Date",
+                    //       style: TextStyle(
+                    //           fontSize: 12,
+                    //           fontWeight: FontWeight.bold,
+                    //           color: tabletitle,
+                    //           fontFamily: 'inter'),
+                    //     ),
+                    //   ),
+                    //   flex: 8,
+                    // ),
                     Text("|"),
                     Expanded(
                       child: Container(
@@ -880,7 +880,7 @@ class _EditInvoiceState extends State<EditInvoice> {
                                        TextEditingController(text: "0"),
                                   boxqtycontrollers:
                                        TextEditingController(text: "0"),
-                                  expiredate: DateTime.now(),
+                       //           expiredate: DateTime.now(),
                                   supplierpricecontrollers:
                                        TextEditingController(text: "0"),
                                   selectedproduct: ""));

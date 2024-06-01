@@ -60,7 +60,7 @@ class _InvoiceReturnDetailsState extends State<InvoiceReturnDetails> {
             InvoiceList.add(Stock.forInvoice(
                 productId: element["Product ID"],
                 productName: element["Product Name"],
-                expireDate: element["Expire Date"].toDate(),
+       //         expireDate: element["Expire Date"].toDate(),
                 price: element["Price"],
                 productqty: element["Quantity"],
               serial: element["Serial"],

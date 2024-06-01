@@ -59,7 +59,7 @@ class _PurchaseDetailsState extends State<PurchaseDetails> {
               (widget.cst.purchaseDate.year == ss.year)) {
             purchaseList.add(Stock(productId: element["Product ID"],
                 productName: element["Product Name"],
-                expireDate: element["Expire Date"].toDate(),
+     //           expireDate: element["Expire Date"].toDate(),
                 price: element["Price"],
                 manuPrice: element["Supplier Price"],
                 productqty: element["Quantity"],

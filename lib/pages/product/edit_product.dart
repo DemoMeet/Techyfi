@@ -307,7 +307,7 @@ class _EditProductState extends State<EditProduct> {
                       Expanded(
                           flex: 10,
                           child: CustomText(
-                            text: "Bar Code/ QR Code",
+                            text: "IMEI Number",
                             size: 16,
                           )),
                       const Expanded(
@@ -349,7 +349,7 @@ class _EditProductState extends State<EditProduct> {
                                 borderSide:
                                 BorderSide(color: Colors.blue),
                               ),
-                              hintText: "Bar Code/ QR Code",
+                              hintText: "IMEI Number",
                               fillColor: Colors.grey.shade200,
                               filled: true,
                             ),

@@ -99,12 +99,12 @@ Future<void> main() async {
   await WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
-        apiKey: "AIzaSyCNc_biypcXrpuA9CUipSZlC2vF7piIGO4",
-        authDomain: "groceyfi---02.firebaseapp.com",
-        projectId: "groceyfi---02",
-        storageBucket: "groceyfi---02.appspot.com",
-        messagingSenderId: "312790918896",
-        appId: "1:312790918896:web:5ba97352d32ed32ba98435"),
+        apiKey: "AIzaSyCXHCHFly_Afw3icKty1FICJ_GAy3nT1Ww",
+        authDomain: "techyfi---01.firebaseapp.com",
+        projectId: "techyfi---01",
+        storageBucket: "techyfi---01.appspot.com",
+        messagingSenderId: "44371976932",
+        appId: "1:44371976932:web:323776d97e4d668e4942f1"),
   );
   await Get.put(AuthService());
   final authService = AuthService.to;
@@ -414,11 +414,11 @@ class _MyAppState extends State<MyApp> {
           name: stockoutreportPageRoute,
           page: () => StockOutReport(),
         ),
-        GetPage(
-          middlewares: [AuthMiddleware()],
-          name: expireproductPageRoute,
-          page: () => ExpireMediReport(),
-        ),
+        // GetPage(
+        //   middlewares: [AuthMiddleware()],
+        //   name: expireproductPageRoute,
+        //   page: () => ExpireMediReport(),
+        // ),
         GetPage(
           middlewares: [AuthMiddleware()],
           name: purchasereportsupplierPageRoute,

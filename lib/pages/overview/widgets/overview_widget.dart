@@ -66,7 +66,7 @@ class OverViewWidget extends StatelessWidget {
                   color: Colors.white,
                   size: 12,
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(height: 5,),
                 CustomText(
                   text: number,
                   color: Colors.white,

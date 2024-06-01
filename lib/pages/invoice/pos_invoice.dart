@@ -293,7 +293,7 @@ class _PosInvoiceState extends State<PosInvoice> {
     Stock stocks = Stock(
         productId: "",
         productName: "",
-        expireDate: DateTime.now(),
+        //expireDate: DateTime.now(),
         price: 0,
         manuPrice: 0,
         productqty: 0,
@@ -308,7 +308,7 @@ class _PosInvoiceState extends State<PosInvoice> {
       if (element.exists) {
         totalstock = element["Quantity"];
         stocks = Stock(
-          expireDate: element["Expire Date"].toDate(),
+        //  expireDate: element["Expire Date"].toDate(),
           manuPrice: element["Supplier Price"],
           productId: element["Product ID"],
           productName: element["Product Name"],

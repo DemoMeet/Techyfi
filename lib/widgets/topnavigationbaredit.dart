@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -535,42 +536,42 @@ class _MyAppBarEditState extends State<MyAppBarEdit> {
                                     : SizedBox(),
                               ],
                             ),
-                            const SizedBox(
-                              width: 7,
-                            ),
-                            Stack(
-                              children: [
-                                InkWell(
-                                    onTap: () {
-                                      Get.toNamed(expireproductPageRoute);
-                                    },
-                                    child: Image.asset(
-                                      "assets/icons/medexpire.png",
-                                      width: 35,
-                                    )),
-                                vvv.expi.value != 0
-                                    ? Container(
-                                        width: 15,
-                                        height: 15,
-                                        alignment: Alignment.center,
-                                        margin: const EdgeInsets.only(left: 20),
-                                        decoration: BoxDecoration(
-                                            color: Colors.red,
-                                            borderRadius:
-                                                BorderRadius.circular(30),
-                                            border: Border.all(
-                                                color: Colors.red, width: 2)),
-                                        child: Text(
-                                          vvv.expi.value > 99
-                                              ? "99"
-                                              : vvv.expi.value.toString(),
-                                          style: TextStyle(
-                                              fontSize: 8, color: Colors.white),
-                                        ),
-                                      )
-                                    : SizedBox(),
-                              ],
-                            ),
+                            // const SizedBox(
+                            //   width: 7,
+                            // ),
+                            // Stack(
+                            //   children: [
+                            //     InkWell(
+                            //         onTap: () {
+                            //           Get.toNamed(expireproductPageRoute);
+                            //         },
+                            //         child: Image.asset(
+                            //           "assets/icons/medexpire.png",
+                            //           width: 35,
+                            //         )),
+                            //     vvv.expi.value != 0
+                            //         ? Container(
+                            //             width: 15,
+                            //             height: 15,
+                            //             alignment: Alignment.center,
+                            //             margin: const EdgeInsets.only(left: 20),
+                            //             decoration: BoxDecoration(
+                            //                 color: Colors.red,
+                            //                 borderRadius:
+                            //                     BorderRadius.circular(30),
+                            //                 border: Border.all(
+                            //                     color: Colors.red, width: 2)),
+                            //             child: Text(
+                            //               vvv.expi.value > 99
+                            //                   ? "99"
+                            //                   : vvv.expi.value.toString(),
+                            //               style: TextStyle(
+                            //                   fontSize: 8, color: Colors.white),
+                            //             ),
+                            //           )
+                            //         : SizedBox(),
+                            //   ],
+                            // ),
                             const SizedBox(
                               width: 20,
                             ),

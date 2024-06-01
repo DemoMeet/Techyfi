@@ -11,7 +11,6 @@ import 'package:groceyfi02/widgets/custom_text.dart';
 
 import '../../../helpers/screen_size_controller.dart';
 import 'package:get/get.dart';
-import 'package:mat_month_picker_dialog/mat_month_picker_dialog.dart';
 import '../../../constants/style.dart';
 import '../../../helpers/auth_service.dart';
 import '../../../model/Accounts.dart';
@@ -315,17 +314,17 @@ class _AddSalarySetupState extends State<AddSalarySetup> {
   }
 
   _selectDate(BuildContext context) async {
-    showMonthPicker(
-      context: context,
-        firstDate: DateTime(2000),
-        lastDate: DateTime(2025),
-      initialDate: selectedDate,
-    ).then((DateTime? date) {
-      if (date != null) {
-        setState(() {
-          selectedDate = date;
-        });
-      }});
+    // showMonthPicker(
+    //   context: context,
+    //     firstDate: DateTime(2000),
+    //     lastDate: DateTime(2025),
+    //   initialDate: selectedDate,
+    // ).then((DateTime? date) {
+    //   if (date != null) {
+    //     setState(() {
+    //       selectedDate = date;
+    //     });
+    //   }});
   }
 
   _adddeducttosalary(List<Benefit> add, List<Benefit> ded) {

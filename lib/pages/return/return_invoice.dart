@@ -65,7 +65,7 @@ class _ReturnInvoiceState extends State<ReturnInvoice> {
               id: element.id,
               discount: 0,
               check: false,
-              expireDate: element["Expire Date"].toDate(),
+ //             expireDate: element["Expire Date"].toDate(),
               productId: element["Product ID"],
               deductionval: 0,
               productName: element["Product Name"],

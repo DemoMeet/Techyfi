@@ -179,7 +179,7 @@ class _InvoiceReportCategoryState extends State<InvoiceReportCategory> {
                       boxqty: element["Box Quantity"],
                       customerID: ss["Customer ID"],
                       customerName: ss["Customer"],
-                      expireDate: element["Expire Date"].toDate(),
+    //                  expireDate: element["Expire Date"].toDate(),
                       productId: element["Product ID"],
                       serial: element["Serial"],
                       quantity: element["Quantity"],

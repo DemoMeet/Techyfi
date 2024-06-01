@@ -10,7 +10,7 @@ class Purchase {
   late String pid;
   String selectedproduct;
   double stockquantity;
-  DateTime expiredate;
+ // DateTime expiredate;
   TextEditingController totalPurpricecontroller;
 
   Purchase.withid({required this.boxqtycontrollers,
@@ -19,7 +19,7 @@ class Purchase {
     required this.productId,
     required this.selectedproduct,
     required this.stockquantity,
-    required this.expiredate,
+  //  required this.expiredate,
     required this.totalPurpricecontroller,required this.pid});
   Purchase(
       {
@@ -29,6 +29,6 @@ class Purchase {
         required this.productId,
         required this.selectedproduct,
         required this.stockquantity,
-        required this.expiredate,
+ //       required this.expiredate,
         required this.totalPurpricecontroller});
 }

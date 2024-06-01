@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 
 class InvoiceItemModel {
    String  productId, productName, batch,customerName,customerID, batchid,invoiceno,id;
-   DateTime expireDate, invoicedate;
+  // DateTime expireDate
+     DateTime invoicedate;
    double boxqty,
       quantity,
       price,
@@ -18,7 +19,7 @@ class InvoiceItemModel {
         required this.batchid,
         required this.productId,
         required this.productName,
-        required this.expireDate,
+ //       required this.expireDate,
         required this.customerName,
         required this.customerID,
         required this.box,

@@ -138,7 +138,7 @@ class _AddProductState extends State<AddProduct> {
           'Strength': strength,
           'Image': true,
           'ImageURL': url,
-          'Body Rate': bodyrate,
+          'Body Rate': double.parse(bodyrate),
           'User': AuthService.to.user?.name,
           'Product Details': details,
           'Unit ID': _selectedunitid.id,
@@ -172,7 +172,7 @@ class _AddProductState extends State<AddProduct> {
           'Unit ID': _selectedunitid.id,
           'Unit Name': _selectedunitid.name,
           'status': cstats,
-          'Body Rate': bodyrate,
+          'Body Rate': double.parse(bodyrate),
           'Purchase Price': double.parse(menuperprice),
           'Brand ID': _selectedbrandid.id,
           'Brand Name': _selectedbrandid.name,
@@ -249,7 +249,7 @@ class _AddProductState extends State<AddProduct> {
                                       Expanded(
                                           flex: 10,
                                           child: CustomText(
-                                            text: "Bar Code/ QR Code",
+                                            text: "IMEI Number",
                                             size: 16,
                                           )),
                                       const Expanded(
@@ -294,7 +294,7 @@ class _AddProductState extends State<AddProduct> {
                                                 borderSide: BorderSide(
                                                     color: Colors.blue),
                                               ),
-                                              hintText: "Bar Code/ QR Code",
+                                              hintText: "IMEI Number",
                                               fillColor: Colors.grey.shade200,
                                               filled: true,
                                             ),

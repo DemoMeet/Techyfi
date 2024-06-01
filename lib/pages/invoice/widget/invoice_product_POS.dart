@@ -135,7 +135,7 @@ class _InvoiceProductPOSState extends State<InvoiceProductPOS> {
               'Serial': ss + 1,
               'Product Name': ps.product.name,
               'Product ID': ps.product.id,
-              'Expire Date': ps.selectedStock.expireDate,
+       //       'Expire Date': ps.selectedStock.expireDate,
               'Quantity': double.parse(ps.quantity.text),
               'Invoice No': widget.innum.toString(),
               "Body Rate": ps.product.bodyrate,
@@ -191,7 +191,7 @@ class _InvoiceProductPOSState extends State<InvoiceProductPOS> {
                   setState(() {
                     widget.fetchDocuments();
                   });
-                  _makepdf(invoiceID);
+                //  _makepdf(invoiceID);
                   Get.snackbar(
                       "Sales Adding Successfully.", "Printing The Invoice Page",
                       snackPosition: SnackPosition.BOTTOM,
@@ -265,7 +265,7 @@ class _InvoiceProductPOSState extends State<InvoiceProductPOS> {
                       setState(() {
                         widget.fetchDocuments();
                       });
-                      _makepdf(invoiceID);
+                  //    _makepdf(invoiceID);
                       Get.snackbar("Sales Adding Successfully.",
                           "Printing The Invoice Page",
                           snackPosition: SnackPosition.BOTTOM,
@@ -298,7 +298,7 @@ class _InvoiceProductPOSState extends State<InvoiceProductPOS> {
               'Serial': ss + 1,
               'Product Name': ps.product.name,
               'Product ID': ps.product.id,
-              'Expire Date': ps.selectedStock.expireDate,
+          //    'Expire Date': ps.selectedStock.expireDate,
               'Quantity': double.parse(ps.quantity.text),
               "Body Rate": ps.product.bodyrate,
               'Invoice No': widget.innum.toString(),
@@ -354,7 +354,7 @@ class _InvoiceProductPOSState extends State<InvoiceProductPOS> {
           InvoiceList.add(Stock.forInvoice(
             productId: element["Product ID"],
             productName: element["Product Name"],
-            expireDate: element["Expire Date"].toDate(),
+     //       expireDate: element["Expire Date"].toDate(),
             price: element["Price"],
             productqty: element["Quantity"],
             serial: element["Serial"],
@@ -413,21 +413,21 @@ class _InvoiceProductPOSState extends State<InvoiceProductPOS> {
                         ),
                       ),
                     ),
-                    Text("|"),
-                    Expanded(
-                      flex: 4,
-                      child: Container(
-                        child: Text(
-                          "Expire Date",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: tabletitle,
-                              fontFamily: 'inter'),
-                        ),
-                      ),
-                    ),
+                    // Text("|"),
+                    // Expanded(
+                    //   flex: 4,
+                    //   child: Container(
+                    //     child: Text(
+                    //       "Expire Date",
+                    //       textAlign: TextAlign.center,
+                    //       style: TextStyle(
+                    //           fontSize: 12,
+                    //           fontWeight: FontWeight.bold,
+                    //           color: tabletitle,
+                    //           fontFamily: 'inter'),
+                    //     ),
+                    //   ),
+                    // ),
                     Text("|"),
                     Expanded(
                       flex: 3,

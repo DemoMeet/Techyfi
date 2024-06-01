@@ -87,7 +87,7 @@ class _StockReportState extends State<StockReport> {
             stocks.add(Stock(
                 productId: element["Product ID"],
                 productName: element["Product Name"],
-                expireDate: element["Expire Date"].toDate(),
+      //          expireDate: element["Expire Date"].toDate(),
                 price: element["Price"],
                 manuPrice: element["Supplier Price"],
                 productqty: element["Quantity"],

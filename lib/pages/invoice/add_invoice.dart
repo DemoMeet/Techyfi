@@ -195,7 +195,7 @@ class _AddInvoiceState extends State<AddInvoice> {
         quantitycontrollers: TextEditingController(text: "0"),
         pricecontrollers: TextEditingController(text: "0"),
         discountcontrollers: TextEditingController(text: "0"),
-        expiredate: DateTime.now(),
+     //   expiredate: DateTime.now(),
         availqty: 0.0,
         stock: Stock(
             serial: 0,
@@ -204,7 +204,7 @@ class _AddInvoiceState extends State<AddInvoice> {
             productqty: 0,
             productName: "",
             productId: "",
-            expireDate: DateTime.now(),
+         //   expireDate: DateTime.now(),
             total: 0),
         selectedproduct: ""));
     super.initState();
@@ -354,7 +354,7 @@ class _AddInvoiceState extends State<AddInvoice> {
               'Serial': ss + 1,
               'Product Name': ps.selectedproduct,
               'Product ID': ps.productId.id,
-              'Expire Date': ps.stock.expireDate,
+            //  'Expire Date': ps.stock.expireDate,
               "Body Rate": ps.productId.bodyrate,
               'Quantity': double.parse(ps.quantitycontrollers.text),
               'Invoice No': _conpurinvoiceid.text,
@@ -504,7 +504,7 @@ class _AddInvoiceState extends State<AddInvoice> {
               'Serial': ss + 1,
               'Product Name': ps.selectedproduct,
               'Product ID': ps.productId.id,
-              'Expire Date': ps.stock.expireDate,
+            //  'Expire Date': ps.stock.expireDate,
               "Body Rate": ps.productId.bodyrate,
               'Quantity': double.parse(ps.quantitycontrollers.text),
               'Invoice No': _conpurinvoiceid.text,
@@ -560,7 +560,7 @@ class _AddInvoiceState extends State<AddInvoice> {
           _listitem[0].stock = Stock(
               productId: element["Product ID"],
               productName: element["Product Name"],
-              expireDate: element["Expire Date"].toDate(),
+          //    expireDate: element["Expire Date"].toDate(),
               price: element["Price"],
               manuPrice: element["Supplier Price"],
               productqty: element["Quantity"],
@@ -633,7 +633,7 @@ class _AddInvoiceState extends State<AddInvoice> {
                                                     discountcontrollers:
                                                         TextEditingController(
                                                             text: "0"),
-                                                    expiredate: DateTime.now(),
+                           //                         expiredate: DateTime.now(),
                                                     availqty: 0.0,
                                                     stock: Stock(
                                                         serial: 0,
@@ -642,8 +642,8 @@ class _AddInvoiceState extends State<AddInvoice> {
                                                         productqty: 0,
                                                         productName: "",
                                                         productId: "",
-                                                        expireDate:
-                                                            DateTime.now(),
+                              //                          expireDate:
+                               //                             DateTime.now(),
                                                         total: 0),
                                                     selectedproduct:
                                                         matchingProduct.name));
@@ -1213,21 +1213,21 @@ class _AddInvoiceState extends State<AddInvoice> {
                                 ),
                               ),
                             ),
-                            Text("|"),
-                            Expanded(
-                              flex: 5,
-                              child: Container(
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "Expire Date",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: tabletitle,
-                                      fontFamily: 'inter'),
-                                ),
-                              ),
-                            ),
+                            // Text("|"),
+                            // Expanded(
+                            //   flex: 5,
+                            //   child: Container(
+                            //     alignment: Alignment.center,
+                            //     child: Text(
+                            //       "Expire Date",
+                            //       style: TextStyle(
+                            //           fontSize: 12,
+                            //           fontWeight: FontWeight.bold,
+                            //           color: tabletitle,
+                            //           fontFamily: 'inter'),
+                            //     ),
+                            //   ),
+                            // ),
                             Text("|"),
                             Expanded(
                               flex: 4,
@@ -1422,7 +1422,7 @@ class _AddInvoiceState extends State<AddInvoice> {
                                               TextEditingController(text: "0"),
                                           discountcontrollers:
                                               TextEditingController(text: "0"),
-                                          expiredate: DateTime.now(),
+                                  //        expiredate: DateTime.now(),
                                           availqty: 0.0,
                                           stock: Stock(
                                               serial: 0,
@@ -1431,7 +1431,7 @@ class _AddInvoiceState extends State<AddInvoice> {
                                               productqty: 0,
                                               productName: "",
                                               productId: "",
-                                              expireDate: DateTime.now(),
+                                  //            expireDate: DateTime.now(),
                                               total: 0),
                                           selectedproduct: ""));
                                     });

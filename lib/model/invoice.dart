@@ -12,7 +12,7 @@ class Invoice {
   String selectedproduct;
   String selectedtype;
   double availqty;
-  DateTime expiredate;
+  //DateTime expiredate;
   TextEditingController total;
 
 
@@ -32,8 +32,8 @@ class Invoice {
     this.selectedtype,
     required
     this.availqty,
-    required
-    this.expiredate,
+    // required
+    // this.expiredate,
     required
     this.total});
 }

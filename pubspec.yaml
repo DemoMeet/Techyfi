@@ -52,7 +52,7 @@ dependencies:
   pdf: ^3.10.6
   path_provider: ^2.1.1
   csv: ^5.1.1
-  mat_month_picker_dialog: ^1.1.1
+# mat_month_picker_dialog: ^1.1.1
   flutter_barcode_listener: ^0.1.4
 
 

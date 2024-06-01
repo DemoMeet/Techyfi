@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 class StockReturnItem {
   late  String productId, productName, id;
-  DateTime expireDate;
+ // DateTime expireDate;
   late double qty, price,
       discount,
       buyingtotal, returningtotal, deductionval;
@@ -19,7 +19,7 @@ class StockReturnItem {
     required this.returnqtycontrollers,
     required this.deductioncontrollers,
     required this.discount,
-    required this.expireDate,
+ //   required this.expireDate,
     required this.productId,
     required this.productName,
     required this.price,

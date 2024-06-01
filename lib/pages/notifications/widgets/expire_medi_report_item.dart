@@ -69,18 +69,18 @@ class _ExpireMediReportItemState extends State<ExpireMediReportItem> {
                     ),
                   ),
                 ),
-                SizedBox(width: 10,),
-                Expanded(
-                  flex: 3,
-                  child: Container(
-                    child: Text(
-                      DateFormat.yMMMd().format(widget.mst.expireDate)
-                      ,
-                      style: TextStyle(
-                          fontSize: 12, color: Colors.red,  fontFamily: 'inter'),
-                    ),
-                  ),
-                ),
+                // SizedBox(width: 10,),
+                // Expanded(
+                //   flex: 3,
+                //   child: Container(
+                //     child: Text(
+                //       DateFormat.yMMMd().format(widget.mst.expireDate)
+                //       ,
+                //       style: TextStyle(
+                //           fontSize: 12, color: Colors.red,  fontFamily: 'inter'),
+                //     ),
+                //   ),
+                // ),
                 Expanded(
                   flex: 2,
                   child: Container(

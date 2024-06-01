@@ -169,7 +169,7 @@ class _AddPurchaseState extends State<AddPurchase> {
         ),
         boxmrpcontrollers: TextEditingController(text: "0"),
         boxqtycontrollers: TextEditingController(text: "0"),
-        expiredate: DateTime.now(),
+   //     expiredate: DateTime.now(),
         supplierpricecontrollers: TextEditingController(text: "0"),
         selectedproduct: ""));
     super.initState();
@@ -246,7 +246,7 @@ class _AddPurchaseState extends State<AddPurchase> {
                       .update({
                     'Quantity': double.parse(ps.boxqtycontrollers.text) +
                         valss['Quantity'],
-                    'Expire Date': ps.expiredate,
+               //     'Expire Date': ps.expiredate,
                     'Body Rate': ps.productId.bodyrate,
                     'Supplier Price':
                         double.parse(ps.supplierpricecontrollers.text),
@@ -259,7 +259,7 @@ class _AddPurchaseState extends State<AddPurchase> {
                       .set({
                     'Product Name': ps.selectedproduct,
                     'Product ID': ps.productId.id,
-                    'Expire Date': ps.expiredate,
+            //        'Expire Date': ps.expiredate,
                     'Body Rate': ps.productId.bodyrate,
                     'Quantity': double.parse(ps.boxqtycontrollers.text),
                     'Supplier Price':
@@ -274,7 +274,7 @@ class _AddPurchaseState extends State<AddPurchase> {
                 'Product Name': ps.selectedproduct,
                 'Product ID': ps.productId.id,
                 'Code': ps.productId.code,
-                'Expire Date': ps.expiredate,
+          //      'Expire Date': ps.expiredate,
                 'Quantity': double.parse(ps.boxqtycontrollers.text),
                 'Invoice No': _conpurinvoiceid.text,
                 'Invoice Date': selectedDate,
@@ -427,7 +427,7 @@ class _AddPurchaseState extends State<AddPurchase> {
                       .update({
                     'Quantity': double.parse(ps.boxqtycontrollers.text) +
                         valss['Quantity'],
-                    'Expire Date': ps.expiredate,
+        //            'Expire Date': ps.expiredate,
                     'Body Rate': ps.productId.bodyrate,
                     'Supplier Price':
                         double.parse(ps.supplierpricecontrollers.text),
@@ -440,7 +440,7 @@ class _AddPurchaseState extends State<AddPurchase> {
                       .set({
                     'Product Name': ps.selectedproduct,
                     'Product ID': ps.productId.id,
-                    'Expire Date': ps.expiredate,
+        //            'Expire Date': ps.expiredate,
                     'Body Rate': ps.productId.bodyrate,
                     'Quantity': double.parse(ps.boxqtycontrollers.text),
                     'Supplier Price':
@@ -455,7 +455,7 @@ class _AddPurchaseState extends State<AddPurchase> {
                 'Product Name': ps.selectedproduct,
                 'Product ID': ps.productId.id,
                 'Code': ps.productId.code,
-                'Expire Date': ps.expiredate,
+        //        'Expire Date': ps.expiredate,
                 'Quantity': double.parse(ps.boxqtycontrollers.text),
                 'Invoice No': _conpurinvoiceid.text,
                 'Invoice Date': selectedDate,
@@ -642,8 +642,8 @@ class _AddPurchaseState extends State<AddPurchase> {
                                                         boxqtycontrollers:
                                                             TextEditingController(
                                                                 text: "0"),
-                                                        expiredate:
-                                                            DateTime.now(),
+                                         //               expiredate:
+                                         //                   DateTime.now(),
                                                         supplierpricecontrollers:
                                                             TextEditingController(
                                                                 text: matchingProduct
@@ -1201,21 +1201,21 @@ class _AddPurchaseState extends State<AddPurchase> {
                                     ),
                                   ),
                                 ),
-                                Text("|"),
-                                Expanded(
-                                  flex: 6,
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "Expire Date",
-                                      style: TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.bold,
-                                          color: tabletitle,
-                                          fontFamily: 'inter'),
-                                    ),
-                                  ),
-                                ),
+                                // Text("|"),
+                                // Expanded(
+                                //   flex: 6,
+                                //   child: Container(
+                                //     alignment: Alignment.center,
+                                //     child: Text(
+                                //       "Expire Date",
+                                //       style: TextStyle(
+                                //           fontSize: 12,
+                                //           fontWeight: FontWeight.bold,
+                                //           color: tabletitle,
+                                //           fontFamily: 'inter'),
+                                //     ),
+                                //   ),
+                                // ),
                                 Text("|"),
                                 Expanded(
                                   flex: 6,
@@ -1414,7 +1414,7 @@ class _AddPurchaseState extends State<AddPurchase> {
                                               boxqtycontrollers:
                                                   TextEditingController(
                                                       text: "0"),
-                                              expiredate: DateTime.now(),
+                                   //           expiredate: DateTime.now(),
                                               supplierpricecontrollers:
                                                   TextEditingController(
                                                       text: "0"),

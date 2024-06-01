@@ -26,15 +26,15 @@ class AppBarController extends GetxController {
         });
       });
     });
-    await FirebaseFirestore.instance
-        .collection('Stock')
-        .where("Expire Date", isLessThanOrEqualTo: DateTime.now())
-        .get()
-        .then((qury) {
-      qury.docs.forEach((element) {
-        expi++;
-      });
-    });
+    // await FirebaseFirestore.instance
+    //     .collection('Stock')
+    //     .where("Expire Date", isLessThanOrEqualTo: DateTime.now())
+    //     .get()
+    //     .then((qury) {
+    //   qury.docs.forEach((element) {
+    //     expi++;
+    //   });
+    // });
 
     await FirebaseFirestore.instance
         .collection('Lending')

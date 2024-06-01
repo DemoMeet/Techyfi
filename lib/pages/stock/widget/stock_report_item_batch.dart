@@ -109,17 +109,17 @@ class _StockReportItemBatchState extends State<StockReportItemBatch> {
                     ],
                   ),
                 ),
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    child: Text(
-                      outputFormat.format(widget.mst.expireDate),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 12, color: tabletitle, fontFamily: 'inter'),
-                    ),
-                  ),
-                ),
+                // Expanded(
+                //   flex: 2,
+                //   child: Container(
+                //     child: Text(
+                //       outputFormat.format(widget.mst.expireDate),
+                //       textAlign: TextAlign.center,
+                //       style: TextStyle(
+                //           fontSize: 12, color: tabletitle, fontFamily: 'inter'),
+                //     ),
+                //   ),
+                // ),
                 Expanded(
                   flex: 1,
                   child: Container(

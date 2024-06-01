@@ -192,25 +192,25 @@ class _POSInvoiceItemState extends State<POSInvoiceItem> {
             ),
           ),
           
-          Expanded(
-            flex: 4,
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 2),
-              decoration: BoxDecoration(
-                color: Colors.grey.shade200,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              alignment: Alignment.center,
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: CustomText(
-                  text: DateFormat('dd-MM-yyyy')
-                      .format(widget.posItem.selectedStock.expireDate),
-                  size: 12,
-                ),
-              ),
-            ),
-          ),
+          // Expanded(
+          //   flex: 4,
+          //   child: Container(
+          //     margin: EdgeInsets.symmetric(horizontal: 2),
+          //     decoration: BoxDecoration(
+          //       color: Colors.grey.shade200,
+          //       borderRadius: BorderRadius.circular(5),
+          //     ),
+          //     alignment: Alignment.center,
+          //     child: Container(
+          //       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          //       child: CustomText(
+          //         text: DateFormat('dd-MM-yyyy')
+          //             .format(widget.posItem.selectedStock.expireDate),
+          //         size: 12,
+          //       ),
+          //     ),
+          //   ),
+          // ),
           
           Expanded(
             flex: 3,

@@ -277,7 +277,7 @@ class _EditPurchaseState extends State<EditPurchase> {
                   TextEditingController(text: element["Price"].toString()),
               boxqtycontrollers:
                   TextEditingController(text: element["Quantity"].toString()),
-              expiredate: element["Expire Date"].toDate(),
+           //   expiredate: element["Expire Date"].toDate(),
               supplierpricecontrollers: TextEditingController(
                   text: element["Supplier Price"].toString()),
               selectedproduct: element["Product Name"]));
@@ -713,21 +713,21 @@ class _EditPurchaseState extends State<EditPurchase> {
                         ),
                       ),
                     ),
-                    Text("|"),
-                    Expanded(
-                      flex: 6,
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "Expire Date",
-                          style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: tabletitle,
-                              fontFamily: 'inter'),
-                        ),
-                      ),
-                    ),
+                    // Text("|"),
+                    // Expanded(
+                    //   flex: 6,
+                    //   child: Container(
+                    //     alignment: Alignment.center,
+                    //     child: Text(
+                    //       "Expire Date",
+                    //       style: TextStyle(
+                    //           fontSize: 12,
+                    //           fontWeight: FontWeight.bold,
+                    //           color: tabletitle,
+                    //           fontFamily: 'inter'),
+                    //     ),
+                    //   ),
+                    // ),
                     Text("|"),
                     Expanded(
                       flex: 6,
@@ -923,7 +923,7 @@ class _EditPurchaseState extends State<EditPurchase> {
                                       TextEditingController(text: "0"),
                                   boxqtycontrollers:
                                       TextEditingController(text: "0"),
-                                  expiredate: DateTime.now(),
+                   //               expiredate: DateTime.now(),
                                   supplierpricecontrollers:
                                       TextEditingController(text: "0"),
                                   selectedproduct: ""));

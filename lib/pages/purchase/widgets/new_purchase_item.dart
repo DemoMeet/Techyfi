@@ -46,31 +46,32 @@ class _PurchaseItemState extends State<PurchaseItem> {
     });
   }
 
-  _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: widget.listitem.expiredate,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2025),
-      builder: (context, child) {
-        return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.light(
-              primary: buttonbg,
-              onPrimary: Colors.white,
-              onSurface: buttonbg,
-            ),
-          ),
-          child: child!,
-        );
-      },
-    );
-    if (picked != null && picked != widget.listitem.expiredate) {
-      setState(() {
-        widget.listitem.expiredate = picked;
-      });
-    }
-  }
+  // _selectDate(BuildContext context) async {
+  //   final DateTime? picked = await showDatePicker(
+  //     context: context,
+  // //    initialDate: widget.listitem.expiredate,
+  //     firstDate: DateTime(2000),
+  //     lastDate: DateTime(2025),
+  //     builder: (context, child) {
+  //       return Theme(
+  //         data: Theme.of(context).copyWith(
+  //           colorScheme: ColorScheme.light(
+  //             primary: buttonbg,
+  //             onPrimary: Colors.white,
+  //             onSurface: buttonbg,
+  //           ),
+  //         ),
+  //         child: child!,
+  //       );
+  //     },
+  //   );
+  //   if (picked != null //&& picked != widget.listitem.expiredate
+  //   ) {
+  //     setState(() {
+  //       widget.listitem.expiredate = picked;
+  //     });
+  //   }
+  // }
 
 
 
@@ -208,33 +209,33 @@ class _PurchaseItemState extends State<PurchaseItem> {
                       ),
                     ),
                   )),
-              Expanded(
-                flex: 6,
-                child: Container(
-                  alignment: Alignment.center,
-                  child: InkWell(
-                    onTap: () => _selectDate(context),
-                    child: Container(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 5, vertical: 12),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          width: 1,
-                          color: Colors.grey.shade400,
-                        ),
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white,
-                      ),
-                      child: CustomText(
-                        text: DateFormat.yMMMd()
-                            .format(widget.listitem.expiredate)
-                            .toString(),
-                        size: 12,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              // Expanded(
+              //   flex: 6,
+              //   child: Container(
+              //     alignment: Alignment.center,
+              //     child: InkWell(
+              //       onTap: () => _selectDate(context),
+              //       child: Container(
+              //         padding:
+              //             const EdgeInsets.symmetric(horizontal: 5, vertical: 12),
+              //         decoration: BoxDecoration(
+              //           border: Border.all(
+              //             width: 1,
+              //             color: Colors.grey.shade400,
+              //           ),
+              //           borderRadius: BorderRadius.circular(5),
+              //           color: Colors.white,
+              //         ),
+              //         child: CustomText(
+              //           text: DateFormat.yMMMd()
+              //               .format(widget.listitem.expiredate)
+              //               .toString(),
+              //           size: 12,
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
 
               Expanded(
                   flex: 6,

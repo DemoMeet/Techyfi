@@ -178,7 +178,7 @@ class _PurchaseReportCategoryState extends State<PurchaseReportCategory> {
                       boxqty: element["Box Quantity"],
                       customerID: ss["Supplier ID"],
                       customerName: ss["Supplier"],
-                      expireDate: element["Expire Date"].toDate(),
+         //             expireDate: element["Expire Date"].toDate(),
                       productId: element["Product ID"],
                       serial: element["Serial"],
                       quantity: element["Quantity"],
