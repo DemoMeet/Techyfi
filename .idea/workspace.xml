@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0320dd2d-1cae-4691-b9ae-8adddf49ce23" name="Changes" comment="Working with a4 pdf">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/pdf_invoiceA4PDF.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/pdf_invoiceA4PDF.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/invoice/invoice_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/invoice/invoice_list.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/overview/overview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/overview/overview.dart" afterDir="false" />
-    </list>
+    <list default="true" id="0320dd2d-1cae-4691-b9ae-8adddf49ce23" name="Changes" comment="Updated with the dashboard" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,12 +90,21 @@
       <option name="project" value="LOCAL" />
       <updated>1717258311201</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updated with the dashboard">
+      <option name="closed" value="true" />
+      <created>1717258933873</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717258933873</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial Commit" />
     <MESSAGE value="Working with a4 pdf" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working with a4 pdf" />
+    <MESSAGE value="Updated with the dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated with the dashboard" />
   </component>
 </project>
