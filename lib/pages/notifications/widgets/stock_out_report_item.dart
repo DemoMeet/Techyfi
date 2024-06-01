@@ -1,0 +1,105 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+
+import '../../../constants/style.dart';
+import '../../../model/products.dart';
+import '../../../model/productstock.dart';
+
+class StockOutReportItem extends StatefulWidget {
+
+  ProductStock mst;
+  int index;
+  final void Function() fetchDocuments;
+  StockOutReportItem({
+    required this.mst,
+    required this.index,
+    required this.fetchDocuments,
+  });
+
+  @override
+  State<StockOutReportItem> createState() => _StockOutReportItemState();
+}
+
+class _StockOutReportItemState extends State<StockOutReportItem> {
+
+
+  @override
+  Widget build(BuildContext context) {
+    double _width = MediaQuery.of(context).size.width;
+    return Container(
+      padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(bottom: 5),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 30),
+                    child: Text(
+                      (widget.mst.sl + 1).toString(),
+                      style: TextStyle(
+                          fontSize: 12, color: tabletitle, fontFamily: 'inter'),
+                    ),
+                  ),
+                  flex: 1,
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    margin: EdgeInsets.only(left: 7),
+                    child: Text(
+                      "${widget.mst.product.name}(${widget.mst.product.strength}${widget.mst.product.unit})",
+                      style: TextStyle(
+                          fontSize: 12, color: tabletitle, fontFamily: 'inter'),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 10,),
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    margin: EdgeInsets.only(left: 7),
+                    child: Text(
+                      widget.mst.product.name,
+                      style: TextStyle(
+                          fontSize: 12, color: tabletitle, fontFamily: 'inter'),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 10,),
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    child: Text(
+                      widget.mst.product.unit,
+                      style: TextStyle(
+                          fontSize: 12, color: tabletitle, fontFamily: 'inter'),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    child: Text(
+                      widget.mst.stock.toString(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 12, color: Colors.red, fontFamily: 'inter'),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: .2,
+            width: double.infinity,
+            color: tabletitle,
+          )
+        ],
+      ),
+    );
+  }
+}
