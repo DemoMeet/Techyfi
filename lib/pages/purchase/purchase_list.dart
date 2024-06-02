@@ -897,7 +897,7 @@ class _PurchaseListState extends State<PurchaseList> {
                                           ],
                                         ),
                                       ),
-                                      Expanded(
+                                      const Expanded(
                                         child: SizedBox(
                                           height: 1,
                                         ),
@@ -916,7 +916,7 @@ class _PurchaseListState extends State<PurchaseList> {
                                           },
                                         ),
                                       ),
-                                      Expanded(
+                                      const Expanded(
                                         child: SizedBox(
                                           height: 1,
                                         ),

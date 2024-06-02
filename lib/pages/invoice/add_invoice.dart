@@ -463,6 +463,7 @@ class _AddInvoiceState extends State<AddInvoice> {
                       'Invoice Date': selectedDate,
                       'Customer': _selectedcustomer,
                       'Account ID': _selectedAccountid.uid,
+                      'User': AuthService.to.user?.name,
                       'Customer ID': _selectedcustomerid.id,
                       'Return':false,
                       'VAT': double.parse(_conpurvat.text),

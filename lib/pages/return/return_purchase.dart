@@ -110,12 +110,11 @@ class _ReturnPurchaseState extends State<ReturnPurchase> {
             sbankaccounts.add(element["Account Number"]);
             if(element.id == widget.cst.accountID){
               selectedpm = true;
-              bankpayment = true;
-              _selectedpayment = "Bank Payment";
-              _selectedaccount = element["Bank Name"];
+              bankpayment = true;_selectedpayment = "Bank Payment";
+              _selectedaccount = element["Account Number"];
               _selectedAccountid = _bankaccounts[
               sbankaccounts
-                  .indexOf(element["Bank Name"])];
+                  .indexOf(element["Account Number"])];
             }
           } else {
 
@@ -633,7 +632,8 @@ class _ReturnPurchaseState extends State<ReturnPurchase> {
                                 var vs;
                                 _selectedaccount = vs;
                                 _selectedAccountid = vs;
-                              } else {
+                              }
+                              else {
                                 selectedpm = true;
                                 bankpayment = false;
                                 var vs;
@@ -724,6 +724,7 @@ class _ReturnPurchaseState extends State<ReturnPurchase> {
                                     hint: const Text('Select Bank Account'),
                                     value: _selectedaccount,
                                     onChanged: (newValue) {
+                                      print(newValue);
                                       setState(() {
                                         _selectedaccount = newValue.toString();
                                         _selectedAccountid = _bankaccounts[

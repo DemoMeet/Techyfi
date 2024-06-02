@@ -47,7 +47,6 @@ class _ReturnInvoiceState extends State<ReturnInvoice> {
   var payment = ["Bank Payment", "Cash Payment"];
   var _selectedaccount, _selectedpayment;
   var _selectedAccountid;
-
   int _sts = 1;
   _getItem() async {
     await FirebaseFirestore.instance
@@ -103,13 +102,11 @@ class _ReturnInvoiceState extends State<ReturnInvoice> {
               selectedpm = true;
               bankpayment = true;
               _selectedpayment = "Bank Payment";
-              _selectedaccount = element["Bank Name"];
+              _selectedaccount =  element["Account Number"];
               _selectedAccountid = _bankaccounts[
-              sbankaccounts
-                  .indexOf(element["Bank Name"])];
+              sbankaccounts.indexOf(element["Account Number"])];
             }
           } else {
-
             _cashaccounts.add(Accounts(
                 uid: element["UID"],
                 accountname: element["Account Name"],
@@ -124,7 +121,6 @@ class _ReturnInvoiceState extends State<ReturnInvoice> {
                 branch: element["Branch"],
                 sl: 0));
             scashaccounts.add(element["Cash Name"].toString());
-
             if(element.id == widget.cst.accountID){
               selectedpm = true;
               bankpayment = false;_selectedpayment = "Cash Payment";
@@ -637,6 +633,7 @@ class _ReturnInvoiceState extends State<ReturnInvoice> {
                                     hint: const Text('Select Bank Account'),
                                     value: _selectedaccount,
                                     onChanged: (newValue) {
+                                      print(newValue);
                                       setState(() {
                                         _selectedaccount = newValue.toString();
                                         _selectedAccountid = _bankaccounts[

@@ -53,18 +53,21 @@ class _PurchaseDetailsState extends State<PurchaseDetails> {
           .get()
           .then((querySnapshot) {
         querySnapshot.docs.forEach((element) {
-          setState(() { DateTime ss = element["Invoice Date"].toDate();
-          if ((widget.cst.purchaseDate.month == ss.month) &&
-              (widget.cst.purchaseDate.day == ss.day) &&
-              (widget.cst.purchaseDate.year == ss.year)) {
-            purchaseList.add(Stock(productId: element["Product ID"],
-                productName: element["Product Name"],
-     //           expireDate: element["Expire Date"].toDate(),
-                price: element["Price"],
-                manuPrice: element["Supplier Price"],
-                productqty: element["Quantity"],
-                serial:  element["Serial"],
-                total:element["Total"]));}
+          setState(() {
+            DateTime ss = element["Invoice Date"].toDate();
+            if ((widget.cst.purchaseDate.month == ss.month) &&
+                (widget.cst.purchaseDate.day == ss.day) &&
+                (widget.cst.purchaseDate.year == ss.year)) {
+              purchaseList.add(Stock(
+                  productId: element["Product ID"],
+                  productName: element["Product Name"],
+                  //           expireDate: element["Expire Date"].toDate(),
+                  price: element["Price"],
+                  manuPrice: element["Supplier Price"],
+                  productqty: element["Quantity"],
+                  serial: element["Serial"],
+                  total: element["Total"]));
+            }
           });
         });
       });
@@ -72,8 +75,8 @@ class _PurchaseDetailsState extends State<PurchaseDetails> {
     }
 
     return Scaffold(
-      appBar: MyAppBarEdit(height: _height,width: _width),
-      body:SingleChildScrollView(
+      appBar: MyAppBarEdit(height: _height, width: _width),
+      body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
           width: double.infinity,
@@ -206,8 +209,7 @@ class _PurchaseDetailsState extends State<PurchaseDetails> {
                                                 MainAxisAlignment.start,
                                             children: [
                                               CustomText(
-                                                text:
-                                                    widget.cst.supplierName,
+                                                text: widget.cst.supplierName,
                                                 color: Colors.black87,
                                                 weight: FontWeight.bold,
                                                 font: 'opensans',
@@ -402,10 +404,11 @@ class _PurchaseDetailsState extends State<PurchaseDetails> {
                                       ],
                                     ),
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: height / 3.3,
                                     child: FutureBuilder(
-                                      builder: (ctx,AsyncSnapshot snapshot) {
+                                      builder: (ctx, AsyncSnapshot snapshot) {
+                                        print(snapshot.error);
                                         if (snapshot.hasData) {
                                           return MediaQuery.removePadding(
                                             context: context,
@@ -416,155 +419,144 @@ class _PurchaseDetailsState extends State<PurchaseDetails> {
                                               itemBuilder: (context, index) {
                                                 Stock iii =
                                                     snapshot.data[index];
-                                                return Container(
-                                                  child: Row(
-                                                    children: [
-                                                      Expanded(
-                                                        child: Container(
-                                                          child: Text(
-                                                            iii.serial
-                                                                .toString(),
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                            style: TextStyle(
-                                                              fontSize:
-                                                                  width / 64,
-                                                              color: buttonbg,
-                                                            ),
+                                                print(snapshot.data[index]);
+                                                return Row(
+                                                  children: [
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
+                                                                vertical: 7,
+                                                                horizontal: 10),
+                                                        child: Text(
+                                                          iii.serial.toString(),
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style: TextStyle(
+                                                            fontSize:
+                                                                width / 64,
+                                                            color: buttonbg,
                                                           ),
-                                                          padding: EdgeInsets
-                                                              .symmetric(
-                                                                  vertical: 7,
-                                                                  horizontal:
-                                                                      10),
                                                         ),
-                                                        flex: 1,
                                                       ),
-                                                      Text(
-                                                        "|",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white),
-                                                      ),
-                                                      Expanded(
-                                                        child: Container(
-                                                          child: Text(
-                                                            iii.productName,
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                            style: TextStyle(
-                                                              fontSize:
-                                                                  width / 64,
-                                                              color: buttonbg,
-                                                            ),
+                                                    ),
+                                                    const Text(
+                                                      "|",
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                    Expanded(
+                                                      flex: 9,
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
+                                                                vertical: 7,
+                                                                horizontal: 10),
+                                                        child: Text(
+                                                          iii.productName,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style: TextStyle(
+                                                            fontSize:
+                                                                width / 64,
+                                                            color: buttonbg,
                                                           ),
-                                                          padding: EdgeInsets
-                                                              .symmetric(
-                                                                  vertical: 7,
-                                                                  horizontal:
-                                                                      10),
                                                         ),
-                                                        flex: 9,
                                                       ),
-                                                      Text(
-                                                        "|",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white),
-                                                      ),
-                                                      Expanded(
-                                                        child: Container(
-                                                          child: Text(
-                                                            iii.productqty
-                                                                .toString(),
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: TextStyle(
-                                                              fontSize:
-                                                                  width / 64,
-                                                              color: buttonbg,
-                                                            ),
+                                                    ),
+                                                    const Text(
+                                                      "|",
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                    Expanded(
+                                                      flex: 2,
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
+                                                                vertical: 7,
+                                                                horizontal: 10),
+                                                        child: Text(
+                                                          iii.productqty
+                                                              .toString(),
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: TextStyle(
+                                                            fontSize:
+                                                                width / 64,
+                                                            color: buttonbg,
                                                           ),
-                                                          padding: EdgeInsets
-                                                              .symmetric(
-                                                                  vertical: 7,
-                                                                  horizontal:
-                                                                      10),
                                                         ),
-                                                        flex: 2,
                                                       ),
-                                                      Text(
-                                                        "|",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white),
-                                                      ),
-                                                      Expanded(
-                                                        child: Container(
-                                                          child: Text(
-                                                            iii.manuPrice
-                                                                .toString(),
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: TextStyle(
-                                                              fontSize:
-                                                                  width / 64,
-                                                              color: buttonbg,
-                                                            ),
+                                                    ),
+                                                    const Text(
+                                                      "|",
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                    Expanded(
+                                                      flex: 2,
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
+                                                                vertical: 7,
+                                                                horizontal: 10),
+                                                        child: Text(
+                                                          iii.manuPrice
+                                                              .toString(),
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: TextStyle(
+                                                            fontSize:
+                                                                width / 64,
+                                                            color: buttonbg,
                                                           ),
-                                                          padding: EdgeInsets
-                                                              .symmetric(
-                                                                  vertical: 7,
-                                                                  horizontal:
-                                                                      10),
                                                         ),
-                                                        flex: 2,
                                                       ),
-                                                      Text(
-                                                        "|",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white),
-                                                      ),
-                                                      Expanded(
-                                                        child: Container(
-                                                          child: Text(
-                                                            "${iii.productqty * iii.manuPrice}",
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                            textAlign:
-                                                                TextAlign.end,
-                                                            style: TextStyle(
-                                                              fontSize:
-                                                                  width / 64,
-                                                              color: buttonbg,
-                                                            ),
+                                                    ),
+                                                    const Text(
+                                                      "|",
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                    Expanded(
+                                                      flex: 4,
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
+                                                                vertical: 7,
+                                                                horizontal: 10),
+                                                        child: Text(
+                                                          "${iii.productqty * iii.manuPrice}",
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          textAlign:
+                                                              TextAlign.end,
+                                                          style: TextStyle(
+                                                            fontSize:
+                                                                width / 64,
+                                                            color: buttonbg,
                                                           ),
-                                                          padding: EdgeInsets
-                                                              .symmetric(
-                                                                  vertical: 7,
-                                                                  horizontal:
-                                                                      10),
                                                         ),
-                                                        flex: 4,
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 );
                                               },
                                             ),
                                           );
                                         }
-                                        return Center(
+                                        return const Center(
                                           child: CircularProgressIndicator(),
                                         );
                                       },
